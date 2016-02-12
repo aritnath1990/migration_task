@@ -1,0 +1,8 @@
+langcode: en
+status: true
+dependencies: {  }
+name: 'Tags'
+vid: field_tag
+description: 'Use tags to group beers on similar topics into categories.'
+hierarchy: 0
+weight: 0

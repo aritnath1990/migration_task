@@ -1,0 +1,35 @@
+langcode: en
+status: true
+dependencies:
+  config:
+    - field.field.node.migrate_example_tich.body
+    - field.field.node.migrate_example_tich.field_tag
+    - node.type.migrate_example_tich
+  module:
+    - comment
+    - image
+    - text
+    - user
+id: node.migrate_example_tich.default
+targetEntityType: node
+bundle: migrate_example_tich
+mode: default
+content:
+  body:
+    label: hidden
+    type: text_default
+    weight: 2
+    settings: {  }
+    third_party_settings: {  }
+    field_tag:
+    weight: 3
+    label: above
+    settings:
+      link: true
+    third_party_settings: {  }
+    type: entity_reference_label
+    links:
+    weight: 0
+    settings: {  }
+    third_party_settings: {  }
+hidden: {  }
