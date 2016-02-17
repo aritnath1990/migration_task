@@ -5,13 +5,13 @@
 
 # The machine name of the group, by which it is referenced in individual
 # migrations.
-id: email_tich
+id: ssd
 
 # A human-friendly label for the group.
-label: email_tich Imports
+label: Ssd Imports
 
 # More information about the group.
-description: A few simple email_tich-related imports, to demonstrate how to implement migrations.
+description: A few simple ssd-related imports, to demonstrate how to implement migrations.
 
 # Short description of the type of source, e.g. "Drupal 6" or "WordPress".
 source_type: Custom tables

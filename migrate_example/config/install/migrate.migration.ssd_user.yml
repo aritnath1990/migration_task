@@ -1,13 +1,11 @@
 # Migration configuration for user accounts. We've described most of what goes
-# into migration configuration in migrate.migration.beer_term.yml, so won't
+# into migration configuration in migrate.migration.ssd_term.yml, so won't
 # repeat that here.
-id: email_tich_user
-label: email_tich of the world
-third_party_settings:
-  migrate_plus:
-    migration_group: email_tich
+id: ssd_user
+label: Migration Sample Content
+migration_group: ssd
 source:
-  plugin: email_tich_user
+  plugin: ssd_user
 destination:
   plugin: entity:user
 process:
@@ -74,23 +72,23 @@ process:
       0: Male
       1: Female
 
-  field_migrate_example_favbeers: beers
+  field_migrate_example_favssds: ssds
   # The following is blocked on https://www.drupal.org/node/2590993.
 
   # This looks like a simple migration process plugin, but there's magic
   # happening here. We import nodes after terms and users, because they have
   # references to terms and users, so of course the terms and users must be
-  # migrated first - right? However, the favbeers field is a reference to the
-  # beer nodes which haven't yet been migrated - we have a circular relationship
+  # migrated first - right? However, the favssds field is a reference to the
+  # ssd nodes which haven't yet been migrated - we have a circular relationship
   # between users and nodes. The way the migration system resolves this
-  # situation is by creating stubs. In this case, because no beer nodes have
-  # been created, each time a beer is looked up against the beer_node migration
+  # situation is by creating stubs. In this case, because no ssd nodes have
+  # been created, each time a ssd is looked up against the ssd_node migration
   # nothing is found, and by default the migration process plugin creates an
-  # empty stub node as a placeholder so the favbeers reference field has
-  # something to point to. The stub is recorded in the beer_node map table, so
-  # when that migration runs it knows that each incoming beer should overwrite
+  # empty stub node as a placeholder so the favssds reference field has
+  # something to point to. The stub is recorded in the ssd_node map table, so
+  # when that migration runs it knows that each incoming ssd should overwrite
   # its stub instead of creating a new node.
-#  field_migrate_example_favbeers:
+#  field_migrate_example_favssds:
 #    plugin: migration
-#    source: beers
-#    migration: beer_node
+#    source: ssds
+#    migration: ssd_node

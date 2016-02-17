@@ -2,7 +2,7 @@
 
 /**
  * @file
- * Contains \Drupal\migrate_example\Plugin\migrate\source\email_tichTerm.
+ * Contains \Drupal\migrate_example\Plugin\migrate\source\SsdTerm.
  */
 
 namespace Drupal\migrate_example\Plugin\migrate\source;
@@ -17,14 +17,14 @@ use Drupal\migrate\Plugin\migrate\source\SqlBase;
  * methods you see below.
  *
  * This annotation tells Drupal that the name of the MigrateSource plugin
- * implemented by this class is "beer_term". This is the name that the migration
+ * implemented by this class is "ssd_term". This is the name that the migration
  * configuration references with the source "plugin" key.
  *
  * @MigrateSource(
- *   id = "email_tich_term"
+ *   id = "ssd_term"
  * )
  */
-class email_tichTerm extends SqlBase {
+class SsdTerm extends SqlBase {
 
   /**
    * {@inheritdoc}
@@ -38,7 +38,7 @@ class email_tichTerm extends SqlBase {
      * that the query is executed against the database configured for this
      * source plugin.
      */
-    return $this->select('migrate_example_beer_topic', 'met')
+    return $this->select('migrate_example_ssd_topic', 'met')
       ->fields('met', ['style', 'details', 'style_parent', 'region', 'hoppiness'])
       // We sort this way to ensure parent terms are imported first.
       ->orderBy('style_parent', 'ASC');

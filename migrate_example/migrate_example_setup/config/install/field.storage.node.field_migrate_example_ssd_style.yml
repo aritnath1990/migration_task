@@ -4,8 +4,8 @@ dependencies:
   module:
     - node
     - taxonomy
-id: node.field_tag
-field_name: field_tag
+id: node.field_migrate_example_ssd_style
+field_name: field_migrate_example_ssd_style
 entity_type: node
 type: entity_reference
 settings:

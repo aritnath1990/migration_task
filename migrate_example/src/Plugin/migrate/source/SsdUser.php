@@ -2,7 +2,7 @@
 
 /**
  * @file
- * Contains \Drupal\migrate_example\Plugin\migrate\source\email_tichUser.
+ * Contains \Drupal\migrate_example\Plugin\migrate\source\SsdUser.
  */
 
 namespace Drupal\migrate_example\Plugin\migrate\source;
@@ -11,21 +11,21 @@ use Drupal\migrate\Plugin\migrate\source\SqlBase;
 use Drupal\migrate\Row;
 
 /**
- * Source plugin for beer user accounts.
+ * Source plugin for Ssd user accounts.
  *
  * @MigrateSource(
- *   id = "email_tich_user"
+ *   id = "ssd_user"
  * )
  */
-class email_tichUser extends SqlBase {
+class SsdUser extends SqlBase {
 
   /**
    * {@inheritdoc}
    */
   public function query() {
-    return $this->select('migrate_example_beer_account', 'mea')
+    return $this->select('migrate_example_ssd_account', 'mea')
       ->fields('mea', ['aid', 'status', 'registered', 'username', 'nickname',
-                            'password', 'email', 'sex', 'beers']);
+                            'password', 'email', 'sex', 'ssds']);
   }
 
   /**
@@ -41,7 +41,7 @@ class email_tichUser extends SqlBase {
       'password' => $this->t('Account password (raw)'),
       'email' => $this->t('Account email'),
       'sex' => $this->t('Gender'),
-      'beers' => $this->t('Favorite beers, pipe-separated'),
+      'ssds' => $this->t('Favorite ssds, pipe-separated'),
     ];
 
     return $fields;
@@ -70,13 +70,13 @@ class email_tichUser extends SqlBase {
      * opportunity to modify or add to that data, creating the canonical set of
      * source data that will be fed into the processing pipeline.
      *
-     * In our particular case, the list of a user's favorite beers is a pipe-
-     * separated list of beer IDs. The processing pipeline deals with arrays
+     * In our particular case, the list of a user's favorite ssds is a pipe-
+     * separated list of ssd IDs. The processing pipeline deals with arrays
      * representing multi-value fields naturally, so we want to explode that
-     * string to an array of individual beer IDs.
+     * string to an array of individual ssd IDs.
      */
-    if ($value = $row->getSourceProperty('beers')) {
-      $row->setSourceProperty('beers', explode('|', $value));
+    if ($value = $row->getSourceProperty('ssds')) {
+      $row->setSourceProperty('ssds', explode('|', $value));
     }
     /**
      * Always call your parent! Essential processing is performed in the base

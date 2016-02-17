@@ -2,15 +2,15 @@ langcode: en
 status: true
 dependencies:
   config:
-    - field.storage.user.field_migrate_example_favbeers
-    - node.type.migrate_example_tich
+    - field.storage.user.field_migrate_example_favssds
+    - node.type.email_teachings
   module:
     - user
-id: user.user.field_migrate_example_favbeers
-field_name: field_migrate_example_favbeers
+id: user.user.field_migrate_example_favssds
+field_name: field_migrate_example_favssds
 entity_type: user
 bundle: user
-label: 'Favorite tich'
+label: 'Favorite ssds'
 description: ''
 required: false
 translatable: false
@@ -20,7 +20,7 @@ settings:
   handler: 'default:node'
   handler_settings:
     target_bundles:
-      migrate_example_tich: migrate_example_tich
+      email_teachings: email_teachings
     sort:
       field: title
       direction: ASC

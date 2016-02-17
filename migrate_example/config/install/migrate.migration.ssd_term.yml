@@ -3,29 +3,21 @@
 # destination fields), and write it to Drupal.
 
 # The machine name for a migration, used to uniquely identify it.
-id: email_tich_term
+id: ssd_term
 
 # A human-friendly description of the migration.
 label: Migrate style categories from the source database to taxonomy terms
 
-# This section contains configuration added by modules other than the primary
-# module defining the configuration entity. The 'migrate.migration.' at the
-# beginning of the file name indicates that the migrate module defines the
-# migration configuration entity type. The migrate_plus module extends that
-# entity type with the group concept, thus the settings it provides fall under
-# 'third_party_settings:' and 'migrate_plus:'.
-third_party_settings:
-  migrate_plus:
-    # The machine name of the group containing this migration (which contains
-    # shared configuration to be merged with our own configuration here).
-    migration_group: email_tich
+# The machine name of the group containing this migration (which contains
+# shared configuration to be merged with our own configuration here).
+migration_group: ssd
 
 # Every migration must have a source plugin, which controls the delivery of our
-# source data. In this case, our source plugin has the name "beer_term", which
+# source data. In this case, our source plugin has the name "ssd_term", which
 # Drupal resolves to the PHP class defined in
-# src/Plugin/migrate/source/BeerTerm.php.
+# src/Plugin/migrate/source/SsdTerm.php.
 source:
-  plugin: email_tich_term
+  plugin: ssd_term
 
 # Every migration must also have a destination plugin, which handles writing
 # the migrated data in the appropriate form for that particular kind of data.
@@ -55,7 +47,7 @@ process:
   # 'default_value:' line is an actual value.
   vid:
     plugin: default_value
-    default_value: migrate_example_email_tich_styles
+    default_value: migrate_example_ssd_styles
 
   # Here's another new plugin - migration. When importing data from another
   # system, typically the unique identifiers for items on the destination side
@@ -75,7 +67,7 @@ process:
     # migration. This works best when we're sure the parents are imported
     # before the children, and in this case our source plugin is guaranteeing
     # that.
-    migration: email_tich_term
+    migration: ssd_term
     # 'style_parent' is the parent reference field from the source data. The
     # result of this plugin is that the destination 'parent' field is populated
     # with the Drupal term ID of the referenced style (or NULL if style_parent
